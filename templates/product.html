@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ slug.name }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="header">
+    <h5>
+      <a href="{% url 'catalog' %}">Вернуться в каталог</a>
+    </h5>
+    <h1>{{ slug.name }}</h1>
+  </div>
+
+  <div class="content">
+    <img src="{{ slug.image }}" alt="{{ slug.name }}"/>
+    <div>Стоимость: {{ slug.price }} ₽</div>
+    <div>Дата выпуска: {{ slug.release_date }}</div>
+    <div>LTE: {{ slug.lte_exists|yesno:'есть,нет' }}</div>
+  </div>
+{% endblock %}
